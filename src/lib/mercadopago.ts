@@ -7,12 +7,12 @@ const client = new MercadoPagoConfig({
   options: { timeout: 5000, idempotencyKey: "abc" },
 });
 
-const BASE_URL = process.env.VERCEL_URL || "apx.school";
+const BASE_URL = process.env.VERCEL_URL || "vaquitapp-juan-murguia.vercel.app";
 
 // Step 3: Initialize the API object
 const pref = new Preference(client);
 
-type CreatePrefOptions = {
+export type CreatePrefOptions = {
   productName: string;
   productDescription: string;
   productId: string;
