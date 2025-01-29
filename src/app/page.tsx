@@ -11,7 +11,7 @@ export default async function Home() {
   const donationsGoal = campaign.amount;
   const progressPercent = Math.round((totalDonations / donationsGoal) * 100);
 
-  if (!campaign) {
+  if (!confirmed) {
     return (
       <div className={styles.root}>
         <div className={styles.content}>

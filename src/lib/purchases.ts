@@ -21,6 +21,7 @@ export async function getConfirmedPayments(): Promise<Purchase[]> {
       purchases.push({ id: doc.id, ...doc.data() } as Purchase);
     });
 
+    console.log(purchases);
     return purchases;
   } catch (error) {
     console.error("Error fetching confirmed payments:", error);
@@ -31,7 +32,7 @@ export async function getConfirmedPayments(): Promise<Purchase[]> {
         amount: 33000,
         message: "Ahi te va mi aporte",
         date: new Date(),
-        status: "confirmed",
+        status: "pending",
       },
     ];
   }
