@@ -11,7 +11,7 @@ type Purchase = {
 export async function getConfirmedPayments(): Promise<Purchase[]> {
   const snapshot = await firestore
     .collection("Purchases")
-    .where("status", "==", "pending")
+    .where("status", "==", "confirmed")
     .get();
   const purchases: Purchase[] = [];
 

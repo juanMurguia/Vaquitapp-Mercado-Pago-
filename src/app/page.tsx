@@ -5,7 +5,7 @@ import { getCampaign } from "@/lib/campaign";
 import Link from "next/link";
 
 export default async function Home() {
-  const confirmed = await getConfirmedPayments();
+  const confirmed = (await getConfirmedPayments()) || [];
   console.log(confirmed);
   const totalDonations = confirmed.reduce((a, b) => a + b.amount, 0);
   const campaign = await getCampaign();
