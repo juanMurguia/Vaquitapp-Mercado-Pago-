@@ -8,18 +8,24 @@ type Purchase = {
   date: Date;
   status: string;
 };
+
 export async function getConfirmedPayments(): Promise<Purchase[]> {
-  const snapshot = await firestore
-    .collection("Purchases")
-    .where("status", "==", "confirmed")
-    .get();
-  const purchases: Purchase[] = [];
+  try {
+    const snapshot = await firestore
+      .collection("Purchases")
+      .where("status", "==", "confirmed")
+      .get();
+    const purchases: Purchase[] = [];
 
-  snapshot.forEach((doc) => {
-    purchases.push({ id: doc.id, ...doc.data() } as Purchase);
-  });
+    snapshot.forEach((doc) => {
+      purchases.push({ id: doc.id, ...doc.data() } as Purchase);
+    });
 
-  return purchases;
+    return purchases;
+  } catch (error) {
+    console.error("Error fetching confirmed payments:", error);
+    return [];
+  }
 }
 
 export async function createPurchase(
