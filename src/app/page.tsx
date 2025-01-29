@@ -7,12 +7,7 @@ import Link from "next/link";
 export default async function Home() {
   const confirmed = (await getConfirmedPayments()) || [];
   const totalDonations = confirmed?.reduce((a, b) => a + b.amount, 0);
-  const campaign = {
-    title: "Quiero mi Samsung Galaxy S24 Ultra",
-    description:
-      " Hola, soy Juan, y estoy lanzando esta campaña porque siempre soñe con tener este celu. ¡Gracias por ser parte de esta aventura!",
-    amount: 1000000,
-  };
+  const campaign = getCampaign();
   const donationsGoal = campaign.amount;
   const progressPercent = Math.round((totalDonations / donationsGoal) * 100);
 
