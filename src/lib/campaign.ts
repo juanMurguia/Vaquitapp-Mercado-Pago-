@@ -1,5 +1,4 @@
-export async function getCampaign() {
-  // Mock data
+export function getCampaign() {
   return {
     title: "Quiero mi Samsung Galaxy S24 Ultra",
     description:

@@ -8,7 +8,7 @@ export default async function Home() {
   const confirmed = (await getConfirmedPayments()) || [];
   console.log(confirmed);
   const totalDonations = confirmed.reduce((a, b) => a + b.amount, 0);
-  const campaign = await getCampaign();
+  const campaign = getCampaign();
   const donationsGoal = campaign.amount;
   const progressPercent = Math.round((totalDonations / donationsGoal) * 100);
 
